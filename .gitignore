@@ -30,10 +30,7 @@ hs_err_pid*
 .idea/misc.xml
 .idea/sonarlint/
 .idea/workspace.xml
-pom.xml
-src/
 target/
-template.yaml
 target/generated-sources/
 target/generated-test-sources/
 target/maven-archiver/
