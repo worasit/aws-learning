@@ -1,9 +1,6 @@
 package com.daimongkol.aws.guice;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Provides;
+import com.google.inject.*;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
@@ -30,9 +27,10 @@ public class SimpleGuice {
 
     /**
      * Guice modue that provides bindings for message and count used in
+     * Annotation style
      * {@link Greeter}
      */
-    static class DemoModule extends AbstractModule {
+    static class AnnotationStyleModule extends AbstractModule {
         @Provides
         @Count
         static Integer provideCount() {
@@ -45,6 +43,15 @@ public class SimpleGuice {
             return "hello world";
         }
     }
+
+//    static class BinderStyleModule extends AbstractModule {
+//        @Override
+//        protected void configure() {
+//            bindConstant().annotatedWith(Message.class).to("hello world");
+//            bindConstant().annotatedWith(Count.class).to(3);
+//        }
+//    }
+
 
     static class Greeter {
         private final String message;
@@ -80,8 +87,7 @@ public class SimpleGuice {
          * instance. Most applications will call this method exactly once, in the
          * main() method.
          */
-        Injector injector = Guice.createInjector(new DemoModule());
-
+        Injector injector = Guice.createInjector(new AnnotationStyleModule());
 
         /*
          * Now that we have got the injector, we can build objects.
