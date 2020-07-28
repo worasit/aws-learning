@@ -1,6 +1,7 @@
 package com.daimongkol.aws.guice.appserver;
 
-import javax.inject.Inject;
+
+import com.google.inject.Inject;
 
 public class MyApplicationServer {
     private final Database database;
