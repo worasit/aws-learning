@@ -9,9 +9,15 @@ import org.mapstruct.factory.Mappers;
 public interface CarMapper {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
-    @Mapping(source = "numberOfSeats", target = "seatCount")
+    @Mapping(target = "seatCount", source = "numberOfSeats")
+    @Mapping(target = "make", expression = "java(updateMake(car.getMake()))")
+    @Mapping(target = "type", source = "type")
     CarDto carToCarDto(Car car);
 
     @InheritInverseConfiguration
     Car carDtoToCar(CarDto carDto);
+
+    default String updateMake(String make) {
+        return make + " - DTO";
+    }
 }

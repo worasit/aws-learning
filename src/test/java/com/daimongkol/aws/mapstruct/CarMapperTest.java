@@ -9,19 +9,19 @@ public class CarMapperTest {
     public void carToCarDto() {
         //given
         Car car = new Car("Morris", 5, CarType.Sedan);
-        CarDto expectedCarDto = new CarDto("Morris", 5, "Sedan");
+        CarDto expectedCarDto = new CarDto("Morris - DTO", 5, "Sedan");
 
         //when
-        CarDto carDto = CarMapper.INSTANCE.carToCarDto(car);
+        CarDto actualCarDto = CarMapper.INSTANCE.carToCarDto(car);
 
         //then
-        Assert.assertEquals(carDto, expectedCarDto);
+        Assert.assertEquals(expectedCarDto, actualCarDto);
     }
 
     @Test
     public void carDtoToCar() {
         //given
-        Car expectedCar = new Car("Morris", 5, CarType.Sedan);
+        Car expectedCar = new Car("Morris - DTO", 5, CarType.Sedan);
         CarDto carDto = new CarDto("Morris", 5, "Sedan");
 
         //when
