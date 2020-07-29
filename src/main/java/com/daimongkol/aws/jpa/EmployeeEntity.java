@@ -1,8 +1,11 @@
 package com.daimongkol.aws.jpa;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Objects;
 
+@Data
 @Entity
 @Table(name = "employee", schema = "public", catalog = "agoda_core")
 public class EmployeeEntity {
