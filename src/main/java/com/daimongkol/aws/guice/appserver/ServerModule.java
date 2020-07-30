@@ -10,18 +10,18 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ServerModule extends AbstractModule {
-    protected void configure() {
-        //add configuration logic here
-        Config config = ConfigFactory.load();
+  protected void configure() {
+    //add configuration logic here
+    Config config = ConfigFactory.load();
 
-        bindConstant().annotatedWith(PaymentUrl.class)
-                .to(config.getString("payment-api.url"));
+    bindConstant().annotatedWith(PaymentUrl.class)
+            .to(config.getString("payment-api.url"));
 
-        bind(PaymentApiClient.class).to(HttpClientImpl.class);
-        bind(PaymentApi.class).to(PaymentApiImpl.class);
-        bind(Database.class).to(DatabaseImpl.class).in(Singleton.class);
+    bind(PaymentApiClient.class).to(HttpClientImpl.class);
+    bind(PaymentApi.class).to(PaymentApiImpl.class);
+    bind(Database.class).to(DatabaseImpl.class).in(Singleton.class);
 
-        String render = config.root().render(ConfigRenderOptions.defaults());
-        log.info(render);
-    }
+    String render = config.root().render(ConfigRenderOptions.defaults());
+    log.info(render);
+  }
 }

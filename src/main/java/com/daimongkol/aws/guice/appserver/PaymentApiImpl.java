@@ -6,16 +6,16 @@ import javax.inject.Inject;
 
 @Slf4j
 public class PaymentApiImpl implements PaymentApi {
-    private final PaymentApiClient httpClient;
+  private final PaymentApiClient httpClient;
 
-    @Inject
-    public PaymentApiImpl(PaymentApiClient httpClient) {
-        this.httpClient = httpClient;
-    }
+  @Inject
+  public PaymentApiImpl(PaymentApiClient httpClient) {
+    this.httpClient = httpClient;
+  }
 
 
-    @Override
-    public void paid(Payment payment) {
-        httpClient.submitPayment(payment.price, payment.currency);
-    }
+  @Override
+  public void paid(Payment payment) {
+    httpClient.submitPayment(payment.price, payment.currency);
+  }
 }

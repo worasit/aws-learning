@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
-    Float price;
-    String currency;
+  Float price;
+  String currency;
 }

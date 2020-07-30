@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Issue {
-    String title;
-    String body;
-    List<String> assignees;
-    Integer milestone;
-    List<String> labels;
+  String title;
+  String body;
+  List<String> assignees;
+  Integer milestone;
+  List<String> labels;
 }

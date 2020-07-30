@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Car {
-    private String make;
-    private int numberOfSeats;
-    private CarType type;
+  private String make;
+  private int numberOfSeats;
+  private CarType type;
 }

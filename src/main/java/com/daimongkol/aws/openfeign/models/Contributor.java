@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Contributor {
-    String login;
-    Integer contributions;
-    @SerializedName("avatar_url")
-    String avatarUrl;
+  String login;
+  Integer contributions;
+  @SerializedName("avatar_url")
+  String avatarUrl;
 }
