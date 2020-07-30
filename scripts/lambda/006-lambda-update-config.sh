@@ -1,0 +1,1 @@
+aws lambda update-function-configuration --function-name my-function --memory-size 256

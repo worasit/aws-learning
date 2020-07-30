@@ -1,0 +1,1 @@
+aws lambda create-alias   --function-name my-function --name alias-name --function-version version-number  --description " "
