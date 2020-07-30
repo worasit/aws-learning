@@ -1,0 +1,1 @@
+aws lambda list-functions --out json | jq .
