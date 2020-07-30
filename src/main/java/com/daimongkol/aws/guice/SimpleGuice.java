@@ -1,9 +1,6 @@
 package com.daimongkol.aws.guice;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Provides;
+import com.google.inject.*;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
@@ -27,36 +24,29 @@ public class SimpleGuice {
      */
     Greeter greeter = injector.getInstance(Greeter.class);
 
-
     greeter.sayHello();
   }
 
-  /**
-   * Creates a specific annotation to provide data by annotation instead
-   * of data type
-   */
+  /** Creates a specific annotation to provide data by annotation instead of data type */
   @Qualifier
   @Retention(RetentionPolicy.RUNTIME)
-  @interface Count {
-  }
+  @interface Count {}
 
   @Qualifier
   @Retention(RetentionPolicy.RUNTIME)
-  @interface Message {
-  }
+  @interface Message {}
 
-//    static class BinderStyleModule extends AbstractModule {
-//        @Override
-//        protected void configure() {
-//            bindConstant().annotatedWith(Message.class).to("hello world");
-//            bindConstant().annotatedWith(Count.class).to(3);
-//        }
-//    }
+  //    static class BinderStyleModule extends AbstractModule {
+  //        @Override
+  //        protected void configure() {
+  //            bindConstant().annotatedWith(Message.class).to("hello world");
+  //            bindConstant().annotatedWith(Count.class).to(3);
+  //        }
+  //    }
 
   /**
-   * Guice modue that provides bindings for message and count used in
-   * Annotation style
-   * {@link Greeter}
+   * Guice modue that provides bindings for message and count used in Annotation style {@link
+   * Greeter}
    */
   static class AnnotationStyleModule extends AbstractModule {
     @Provides
@@ -70,32 +60,54 @@ public class SimpleGuice {
     static String provideMessage() {
       return "hello world";
     }
+
+    @Override
+    protected void configure() {
+      super.configure();
+    }
+  }
+
+  class XXXProvider implements Provider<String> {
+    @Override
+    public String get() {
+      return null;
+    }
+  }
+
+  static class Reporter {
+
+    public Reporter() {}
+
+    void print(String message) {
+      System.out.println(message);
+    }
   }
 
   static class Greeter {
     private final String message;
     private final Integer count;
-
+    private final Reporter reporter;
 
     /**
-     * Greeter declares that it needs a string message and an integer
-     * representing the number of time the message to be printed.
-     * <p>
-     * The @Inject annotation marks this constructor as eligible to be used by
-     * Guice
+     * Greeter declares that it needs a string message and an integer representing the number of
+     * time the message to be printed.
+     *
+     * <p>The @Inject annotation marks this constructor as eligible to be used by Guice
      *
      * @param message
      * @param count
+     * @param reporter
      */
     @Inject
-    Greeter(@Message String message, @Count Integer count) {
+    Greeter(@Message String message, @Count Integer count, Reporter reporter) {
       this.message = message;
       this.count = count;
+      this.reporter = reporter;
     }
 
     void sayHello() {
       for (int i = 0; i < this.count; i++) {
-        log.info(this.message);
+        reporter.print(this.message);
       }
     }
   }
