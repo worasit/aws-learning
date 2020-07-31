@@ -15,6 +15,3 @@ aws lambda update-alias --name  routing-alias \
 
 # Invoke lambda with weighted alias named "routing-alias"
 aws lambda invoke --function-name my-function:routing-alias out
-
-
-
