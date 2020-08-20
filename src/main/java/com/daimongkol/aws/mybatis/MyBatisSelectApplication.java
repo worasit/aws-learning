@@ -2,6 +2,7 @@ package com.daimongkol.aws.mybatis;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -9,18 +10,18 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 @Slf4j
-public class MyBatisApplication {
+public class MyBatisSelectApplication {
   public static void main(String[] args) throws IOException {
     Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
     SqlSession sqlSession = sqlSessionFactory.openSession();
 
-    // Create a new student object
-    Student student = new Student("Mohammad", "It", 80, 984803322, "Mohammad@gmail.com");
+    List<Student> students = sqlSession.selectList("Student.getAll");
+    students.forEach(student -> log.info(student.toString()));
 
-    // Insert a student data
-    sqlSession.insert("Student.insert", student);
-    log.info("record inserted successfully");
+    Student student = sqlSession.selectOne("Student.getById", 1);
+    log.info(student.toString());
+
     sqlSession.commit();
     sqlSession.close();
   }
