@@ -12,6 +12,11 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="default.maven.cloud" />
+      <option name="name" value="default.maven.cloud" />
+      <option name="url" value="https://bams-aws.refinitiv.com/artifactory/default.maven.cloud" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="release.maven.global" />
       <option name="name" value="release.maven.global" />
       <option name="url" value="https://bams-aws.refinitiv.com/artifactory/release.maven.global" />
