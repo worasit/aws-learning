@@ -6,6 +6,11 @@
 
   <resultMap id="result" type="com.daimongkol.aws.mybatis.Student">
     <result property="id" column="ID"/>
+    <result property="name" column="NAME"/>
+    <result property="branch" column="BRANCH"/>
+    <result property="percentage" column="PERCENTAGE"/>
+    <result property="phone" column="PHONE"/>
+    <result property="email" column="EMAIL"/>
   </resultMap>
 
   <select id="getAll" resultMap="result">
@@ -26,4 +31,14 @@
       select last_insert_id() as id
     </selectKey>
   </insert>
+
+  <update id="update" parameterType="com.daimongkol.aws.mybatis.Student">
+    update students
+    set NAME       = #{name},
+        BRANCH     = #{branch},
+        PERCENTAGE = #{percentage},
+        PHONE      = #{phone},
+        EMAIL      = #{email}
+    where ID = #{id};
+  </update>
 </mapper>
