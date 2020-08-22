@@ -2,13 +2,15 @@ package com.daimongkol.aws.mybatis.mapper;
 
 import com.daimongkol.aws.mybatis.pojo.Student;
 import java.util.List;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.type.JdbcType;
 
 public interface StudentMapper {
-  @Select("select * from students")
+  @Select(value = "select * from students")
   @Results(
       value = {
         @Result(property = "id", column = "ID", jdbcType = JdbcType.INTEGER, id = true),
@@ -20,7 +22,7 @@ public interface StudentMapper {
       })
   List<Student> getAll();
 
-  @Select("select * from students where ID = #{id}")
+  @Select(value = "select * from students where ID = #{id}")
   @Results(
       value = {
         @Result(property = "id", column = "ID", jdbcType = JdbcType.INTEGER, id = true),
@@ -31,4 +33,12 @@ public interface StudentMapper {
         @Result(property = "email", column = "EMAIL", jdbcType = JdbcType.VARCHAR)
       })
   Student getById(Integer id);
+
+  @Insert(
+      value = {
+        "insert into students (NAME, BRANCH, PERCENTAGE, PHONE, EMAIL)"
+            + "VALUES(#{name}, #{branch}, #{percentage}, #{phone}, #{email} )"
+      })
+  @Options(useGeneratedKeys = true, keyProperty = "id")
+  int insert(Student student);
 }
