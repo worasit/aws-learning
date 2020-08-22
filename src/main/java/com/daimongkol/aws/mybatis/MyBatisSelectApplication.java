@@ -1,5 +1,6 @@
 package com.daimongkol.aws.mybatis;
 
+import com.daimongkol.aws.mybatis.pojo.Student;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;

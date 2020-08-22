@@ -1,4 +1,4 @@
-package com.daimongkol.aws.mybatis;
+package com.daimongkol.aws.mybatis.pojo;
 
 import java.io.Serializable;
 import lombok.Data;
