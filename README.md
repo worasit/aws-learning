@@ -1,4 +1,5 @@
 # App
+[![Build Status](https://travis-ci.org/worasit/aws-learning.svg?branch=master)](https://travis-ci.org/worasit/aws-learning)
 
 This project contains an AWS Lambda maven application with [AWS Java SDK 2.x](https://github.com/aws/aws-sdk-java-v2) dependencies.
 
