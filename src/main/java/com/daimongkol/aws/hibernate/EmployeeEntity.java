@@ -1,4 +1,4 @@
-package com.daimongkol.aws.jpa;
+package com.daimongkol.aws.hibernate;
 
 import lombok.Data;
 

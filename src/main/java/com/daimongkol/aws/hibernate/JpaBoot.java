@@ -1,4 +1,4 @@
-package com.daimongkol.aws.jpa;
+package com.daimongkol.aws.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

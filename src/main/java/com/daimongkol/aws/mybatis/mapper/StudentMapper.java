@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.type.JdbcType;
 
 public interface StudentMapper {
@@ -41,4 +42,16 @@ public interface StudentMapper {
       })
   @Options(useGeneratedKeys = true, keyProperty = "id")
   int insert(Student student);
+
+  @Update(
+      value =
+          "update students "
+              + "set NAME = #{name},"
+              + "BRANCH = #{branch},"
+              + "PERCENTAGE = #{percentage},"
+              + "PHONE = #{phone},"
+              + "EMAIL = #{email}"
+              + "where ID = #{id};")
+  @Options(keyProperty = "id")
+  int update(Student student);
 }
