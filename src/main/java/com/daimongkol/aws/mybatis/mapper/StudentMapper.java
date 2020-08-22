@@ -42,6 +42,7 @@ public interface StudentMapper {
             + "VALUES(#{name}, #{branch}, #{percentage}, #{phone}, #{email} )"
       })
   @Options(useGeneratedKeys = true, keyProperty = "id")
+  @org.apache.ibatis.annotations.UpdateProvider(value = )
   int insert(Student student);
 
   @Update(
