@@ -2,6 +2,7 @@ package com.daimongkol.aws.mybatis.mapper;
 
 import com.daimongkol.aws.mybatis.pojo.Student;
 import java.util.List;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
@@ -54,4 +55,8 @@ public interface StudentMapper {
               + "where ID = #{id};")
   @Options(keyProperty = "id")
   int update(Student student);
+
+  @Delete(value = "delete from students where ID = #{id}")
+  @Options(keyProperty = "id")
+  int delete(int id);
 }
