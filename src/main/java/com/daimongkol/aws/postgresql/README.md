@@ -1,1 +1,1 @@
-https://www.tutorialspoint.com/postgresql/postgresql_operators.htm
+https://www.tutorialspoint.com/postgresql/postgresql_limit_clause.htm
