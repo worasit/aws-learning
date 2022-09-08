@@ -25,7 +25,7 @@
     <mybatis.version>3.5.3</mybatis.version>
     <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
     <HikariCP.version>3.4.5</HikariCP.version>
-    <postgresql.version>42.2.14</postgresql.version>
+    <postgresql.version>42.4.1</postgresql.version>
     <junit.version>4.12</junit.version>
     <flyway-core.version>6.5.5</flyway-core.version>
   </properties>
